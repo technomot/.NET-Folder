@@ -1,60 +1,27 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace Core
 {
-    public class LibraryStorage : IEnumerable<Book>
+    public class LibraryStorage : IEnumerable<LibraryItem>
     {
-        private List<Book> _books = new List<Book>();
+        private List<LibraryItem> _items = new List<LibraryItem>();
 
-        public void Add(Book book)
+        public void Add(LibraryItem item)
         {
-            _books.Add(book);
+            _items.Add(item);
         }
 
-        public int Count => _books.Count;
+        public int Count => _items.Count;
 
-        
-        public IEnumerator<Book> GetEnumerator()
+        public IEnumerator<LibraryItem> GetEnumerator()
         {
-            return _books.GetEnumerator();
+            return _items.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
-
-        
-        private Dictionary<int, Book> _bookDict = new Dictionary<int, Book>();
-
-        public void AddToDictionary(int id, Book book)
-        {
-            _bookDict[id] = book;
-        }
-
-        public Book FindById(int id)
-        {
-            _bookDict.TryGetValue(id, out Book book);
-            return book;
-        }
-
-        public IEnumerable<Book> FilterDictionary(Func<Book, bool> condition)
-        {
-            var result = new List<Book>();
-            foreach (var kvp in _bookDict)
-            {
-                if (condition(kvp.Value))
-                    result.Add(kvp.Value);
-            }
-            return result;
-        }
-
-        
-        public HashSet<string> GetCategories()
-        {
-            return new HashSet<string> { "Programming", "Algorithms", "Design", "Architecture" };
         }
     }
 }

@@ -16,3 +16,4 @@ C:\Users\Administrator\source\repos\labworks\LibraryApp\ConsoleUI\obj\Debug\net8
 C:\Users\Administrator\source\repos\labworks\LibraryApp\ConsoleUI\obj\Debug\net8.0\ConsoleUI.pdb
 C:\Users\Administrator\source\repos\labworks\LibraryApp\ConsoleUI\obj\Debug\net8.0\ConsoleUI.genruntimeconfig.cache
 C:\Users\Administrator\source\repos\labworks\LibraryApp\ConsoleUI\obj\Debug\net8.0\ref\ConsoleUI.dll
+C:\Users\Administrator\source\repos\labworks\LibraryApp\ConsoleUI\obj\Debug\net8.0\ConsoleUI.sourcelink.json
