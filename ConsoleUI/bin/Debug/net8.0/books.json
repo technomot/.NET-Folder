@@ -1,0 +1,42 @@
+[
+  {
+    "Pages": 431,
+    "Price": 29.99,
+    "Title": "Clean Code",
+    "Author": "Robert C. Martin",
+    "PublishedDate": "2008-08-01T00:00:00",
+    "IsAvailable": true
+  },
+  {
+    "Pages": 352,
+    "Price": 34.99,
+    "Title": "The Pragmatic Programmer",
+    "Author": "David Thomas",
+    "PublishedDate": "1999-10-01T00:00:00",
+    "IsAvailable": true
+  },
+  {
+    "Pages": 395,
+    "Price": 44.99,
+    "Title": "Design Patterns",
+    "Author": "Gang of Four",
+    "PublishedDate": "1994-11-01T00:00:00",
+    "IsAvailable": false
+  },
+  {
+    "Pages": 448,
+    "Price": 39.99,
+    "Title": "Refactoring",
+    "Author": "Martin Fowler",
+    "PublishedDate": "1999-07-01T00:00:00",
+    "IsAvailable": true
+  },
+  {
+    "Pages": 960,
+    "Price": 49.99,
+    "Title": "Code Complete",
+    "Author": "Steve McConnell",
+    "PublishedDate": "2004-06-01T00:00:00",
+    "IsAvailable": false
+  }
+]

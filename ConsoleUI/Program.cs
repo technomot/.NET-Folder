@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+using System.Xml.Linq;
 using Core;
 
 namespace ConsoleUI
@@ -8,57 +12,111 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(" TASK 2: Abstract Class ");
-
-            Book book1 = new Book("Clean Code", "Robert C. Martin", 431, 29.99, new DateTime(2008, 8, 1), true);
-            Magazine mag1 = new Magazine("Tech Monthly", "John Smith", 42, "Technology", new DateTime(2023, 1, 1), true);
-
-            Console.WriteLine(book1.GetItemType() + ": " + book1.GetInfo());
-            Console.WriteLine(mag1.GetItemType() + ": " + mag1.GetInfo());
-            Console.WriteLine();
-
-            Console.WriteLine("TASK 3: Interface ISearchable");
-
-            ISearchable searchable = book1;
-            Console.WriteLine("ContainsKeyword('Clean'): " + searchable.ContainsKeyword("Clean"));
-            Console.WriteLine("ContainsKeyword('Java'):  " + searchable.ContainsKeyword("Java"));
-            Console.WriteLine("Summary: " + searchable.GetSummary());
-            Console.WriteLine();
-
-            Console.WriteLine("TASK 4: Composition");
-
-            LibraryController controller = new LibraryController("Central Library", 5, true);
-            controller.ShowConfig();
-            Console.WriteLine();
-
-            Console.WriteLine("TASK 5: Aggregation");
-
-            Book book2 = new Book("The Pragmatic Programmer", "David Thomas", 352, 34.99, new DateTime(1999, 10, 1), true);
-            Book book3 = new Book("Design Patterns", "Gang of Four", 395, 44.99, new DateTime(1994, 11, 1), false);
-            Magazine mag2 = new Magazine("Science Weekly", "Jane Doe", 10, "Science", new DateTime(2023, 5, 1), true);
-
-            LibraryStorage storage = new LibraryStorage();
-            storage.Add(book1);
-            storage.Add(book2);
-            storage.Add(book3);
-            storage.Add(mag1);
-            storage.Add(mag2);
-
-            Console.WriteLine($"Total items in storage: {storage.Count}");
-            foreach (var item in storage)
+            List<Book> books = new List<Book>
             {
-                Console.WriteLine("  " + item.GetInfo());
+                new Book("Clean Code",               "Robert C. Martin", 431,  29.99, new DateTime(2008, 8,  1), true),
+                new Book("The Pragmatic Programmer", "David Thomas",     352,  34.99, new DateTime(1999, 10, 1), true),
+                new Book("Design Patterns",          "Gang of Four",     395,  44.99, new DateTime(1994, 11, 1), false),
+                new Book("Refactoring",              "Martin Fowler",    448,  39.99, new DateTime(1999, 7,  1), true),
+                new Book("Code Complete",            "Steve McConnell",  960,  49.99, new DateTime(2004, 6,  1), false),
+            };
+
+            // ── TASK 2: JSON Serialization ──────────────────────────────
+            Console.WriteLine("=== TASK 2: JSON Serialization ===");
+
+            string jsonPath = "books.json";
+            JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(books, options);
+            File.WriteAllText(jsonPath, jsonString);
+            Console.WriteLine($"Saved {books.Count} books to {jsonPath}");
+
+            string jsonLoaded = File.ReadAllText(jsonPath);
+            List<Book> loadedBooks = JsonSerializer.Deserialize<List<Book>>(jsonLoaded);
+            Console.WriteLine($"Loaded {loadedBooks.Count} books from {jsonPath}");
+            foreach (var b in loadedBooks)
+                Console.WriteLine("  " + b.GetInfo());
+            Console.WriteLine();
+
+            // ── TASK 3: XML with XDocument ──────────────────────────────
+            Console.WriteLine("=== TASK 3: XML Export ===");
+
+            string xmlPath = "books.xml";
+            XDocument xmlDoc = new XDocument(
+                new XElement("Library",
+                    from b in books
+                    where b.IsAvailable == true
+                    select new XElement("Book",
+                        new XElement("Title", b.Title),
+                        new XElement("Author", b.Author),
+                        new XElement("Pages", b.Pages),
+                        new XElement("Price", b.Price),
+                        new XElement("PublishedDate", b.PublishedDate.ToString("yyyy-MM-dd")),
+                        new XElement("IsAvailable", b.IsAvailable)
+                    )
+                )
+            );
+
+            xmlDoc.Save(xmlPath);
+            Console.WriteLine($"Exported available books to {xmlPath}");
+
+            XDocument loaded = XDocument.Load(xmlPath);
+            var xmlBooks = loaded.Descendants("Book");
+            Console.WriteLine("Books from XML:");
+            foreach (var xb in xmlBooks)
+                Console.WriteLine($"  {xb.Element("Title").Value} by {xb.Element("Author").Value}");
+            Console.WriteLine();
+
+            // ── TASK 4: IDisposable ─────────────────────────────────────
+            Console.WriteLine("=== TASK 4: IDisposable ===");
+
+            ResourceManager manager = new ResourceManager("library_log.txt");
+            manager.Log("Application started");
+            manager.Log("Books loaded successfully");
+            manager.Dispose();
+            Console.WriteLine();
+
+            // ── TASK 5: using block ─────────────────────────────────────
+            Console.WriteLine("=== TASK 5: using block ===");
+
+            using (ResourceManager rm = new ResourceManager("library_log2.txt"))
+            {
+                rm.Log("Saving books to JSON");
+                rm.Log("Exporting books to XML");
+                rm.Log("All operations completed");
             }
             Console.WriteLine();
-            Console.WriteLine("TASK 6: Polymorphism");
 
-            ISearchable[] searchables = new ISearchable[] { book1, book2, book3, mag1, mag2 };
-            foreach (var item in searchables)
+            // ── TASK 6: Validation and error handling ───────────────────
+            Console.WriteLine("=== TASK 6: Validation and Error Handling ===");
+
+            string missingFile = "missing.json";
+            if (!File.Exists(missingFile))
             {
-                Console.WriteLine(item.GetSummary());
+                Console.WriteLine($"File '{missingFile}' does not exist.");
             }
-            Console.WriteLine();
 
+            string corruptedJson = "corrupted.json";
+            File.WriteAllText(corruptedJson, "{ this is not valid json }}}");
+
+            try
+            {
+                string content = File.ReadAllText(corruptedJson);
+                List<Book> result = JsonSerializer.Deserialize<List<Book>>(content);
+            }
+            catch (JsonException ex)
+            {
+                Console.WriteLine($"JSON error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+            }
+            finally
+            {
+                Console.WriteLine("Error handling completed.");
+            }
+
+            Console.WriteLine();
             Console.WriteLine("============================================");
         }
     }

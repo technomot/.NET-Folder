@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "89gAJQYnKhg=",
+  "dgSpecHash": "A4gM4qiUC/Y=",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrator\\source\\repos\\labworks\\LibraryApp\\ConsoleUI\\ConsoleUI.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.io.pipelines\\10.0.7\\system.io.pipelines.10.0.7.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.text.encodings.web\\10.0.7\\system.text.encodings.web.10.0.7.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.text.json\\10.0.7\\system.text.json.10.0.7.nupkg.sha512"
+  ],
   "logs": []
 }

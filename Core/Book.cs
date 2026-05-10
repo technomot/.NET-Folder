@@ -7,6 +7,8 @@ namespace Core
         public int Pages { get; set; }
         public double Price { get; set; }
 
+        public Book() : base("", "", DateTime.Now, false) { }
+
         public Book(string title, string author, int pages, double price, DateTime publishedDate, bool isAvailable)
             : base(title, author, publishedDate, isAvailable)
         {
@@ -14,10 +16,7 @@ namespace Core
             Price = price;
         }
 
-        public override string GetItemType()
-        {
-            return "Book";
-        }
+        public override string GetItemType() => "Book";
 
         public override string GetInfo()
         {

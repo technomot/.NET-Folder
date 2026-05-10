@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Library>
+  <Book>
+    <Title>Clean Code</Title>
+    <Author>Robert C. Martin</Author>
+    <Pages>431</Pages>
+    <Price>29.99</Price>
+    <PublishedDate>2008-08-01</PublishedDate>
+    <IsAvailable>true</IsAvailable>
+  </Book>
+  <Book>
+    <Title>The Pragmatic Programmer</Title>
+    <Author>David Thomas</Author>
+    <Pages>352</Pages>
+    <Price>34.99</Price>
+    <PublishedDate>1999-10-01</PublishedDate>
+    <IsAvailable>true</IsAvailable>
+  </Book>
+  <Book>
+    <Title>Refactoring</Title>
+    <Author>Martin Fowler</Author>
+    <Pages>448</Pages>
+    <Price>39.99</Price>
+    <PublishedDate>1999-07-01</PublishedDate>
+    <IsAvailable>true</IsAvailable>
+  </Book>
+</Library>

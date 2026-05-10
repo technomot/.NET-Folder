@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "P5kkwj/7fnI=",
+  "dgSpecHash": "PyQRajHgYIE=",
   "success": true,
   "projectFilePath": "C:\\Users\\Administrator\\source\\repos\\labworks\\LibraryApp\\Core\\Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.io.pipelines\\10.0.7\\system.io.pipelines.10.0.7.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.text.encodings.web\\10.0.7\\system.text.encodings.web.10.0.7.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.text.json\\10.0.7\\system.text.json.10.0.7.nupkg.sha512"
+  ],
   "logs": []
 }

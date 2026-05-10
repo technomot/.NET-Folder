@@ -9,6 +9,8 @@ namespace Core
         public DateTime PublishedDate { get; set; }
         public bool IsAvailable { get; set; }
 
+        public LibraryItem() { }
+
         public LibraryItem(string title, string author, DateTime publishedDate, bool isAvailable)
         {
             Title = title;
