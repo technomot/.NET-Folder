@@ -1,3 +1,6 @@
 12:44:59 — Saving books to JSON
 12:44:59 — Exporting books to XML
 12:44:59 — All operations completed
+15:17:50 — Saving books to JSON
+15:17:50 — Exporting books to XML
+15:17:50 — All operations completed

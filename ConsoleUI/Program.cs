@@ -21,8 +21,8 @@ namespace ConsoleUI
                 new Book("Code Complete",            "Steve McConnell",  960,  49.99, new DateTime(2004, 6,  1), false),
             };
 
-            // ── TASK 2: JSON Serialization ──────────────────────────────
-            Console.WriteLine("=== TASK 2: JSON Serialization ===");
+            
+            Console.WriteLine("TASK 2: JSON Serialization");
 
             string jsonPath = "books.json";
             JsonSerializerOptions options = new JsonSerializerOptions { WriteIndented = true };
@@ -37,8 +37,8 @@ namespace ConsoleUI
                 Console.WriteLine("  " + b.GetInfo());
             Console.WriteLine();
 
-            // ── TASK 3: XML with XDocument ──────────────────────────────
-            Console.WriteLine("=== TASK 3: XML Export ===");
+            
+            Console.WriteLine("TASK 3: XML Export");
 
             string xmlPath = "books.xml";
             XDocument xmlDoc = new XDocument(
@@ -66,8 +66,8 @@ namespace ConsoleUI
                 Console.WriteLine($"  {xb.Element("Title").Value} by {xb.Element("Author").Value}");
             Console.WriteLine();
 
-            // ── TASK 4: IDisposable ─────────────────────────────────────
-            Console.WriteLine("=== TASK 4: IDisposable ===");
+            
+            Console.WriteLine("TASK 4: IDisposable");
 
             ResourceManager manager = new ResourceManager("library_log.txt");
             manager.Log("Application started");
@@ -75,8 +75,8 @@ namespace ConsoleUI
             manager.Dispose();
             Console.WriteLine();
 
-            // ── TASK 5: using block ─────────────────────────────────────
-            Console.WriteLine("=== TASK 5: using block ===");
+            
+            Console.WriteLine("TASK 5: using block");
 
             using (ResourceManager rm = new ResourceManager("library_log2.txt"))
             {
@@ -86,8 +86,7 @@ namespace ConsoleUI
             }
             Console.WriteLine();
 
-            // ── TASK 6: Validation and error handling ───────────────────
-            Console.WriteLine("=== TASK 6: Validation and Error Handling ===");
+            Console.WriteLine("TASK 6: Validation and Error Handling");
 
             string missingFile = "missing.json";
             if (!File.Exists(missingFile))
