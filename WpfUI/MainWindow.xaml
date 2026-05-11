@@ -6,7 +6,7 @@
         MinHeight="400" MinWidth="600">
 
     <Window.Resources>
-        <!-- Common button style -->
+        
         <Style TargetType="Button" x:Key="ToolbarButton">
             <Setter Property="FontSize" Value="13"/>
             <Setter Property="Padding" Value="16 6"/>
@@ -18,19 +18,19 @@
     </Window.Resources>
 
     <Grid>
-        <!-- Row definitions -->
+       
         <Grid.RowDefinitions>
             <RowDefinition Height="44"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Column definitions -->
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- ── Title bar ── -->
+        
         <Border Grid.Row="0" Grid.ColumnSpan="2"
                 Background="#2D2D30">
             <StackPanel Orientation="Horizontal"
@@ -64,7 +64,7 @@
             </StackPanel>
         </Border>
 
-        <!-- ── Sidebar ── -->
+        
         <Border Grid.Row="1" Grid.Column="0"
                 Background="#F5F5F5"
                 BorderBrush="#DDDDDD"
@@ -109,7 +109,7 @@
             </DockPanel>
         </Border>
 
-        <!-- ── Main workspace: DataGrid ── -->
+        
         <DataGrid x:Name="BooksGrid"
                   Grid.Row="1" Grid.Column="1"
                   AutoGenerateColumns="False"

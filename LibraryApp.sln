@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsUI", "WinFormsUI\Wi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfUI", "WpfUI\WpfUI.csproj", "{01BEEFFC-ECE2-48EF-8DCF-EFFB0DC56FBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfMVVM", "WpfMVVM\WpfMVVM.csproj", "{7502BFBB-1C09-41C4-87D8-D87B8486D588}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryTests", "LibraryTests\LibraryTests.csproj", "{E59F9AA7-26F3-4F3E-90F9-15C9FABF2795}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{01BEEFFC-ECE2-48EF-8DCF-EFFB0DC56FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01BEEFFC-ECE2-48EF-8DCF-EFFB0DC56FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01BEEFFC-ECE2-48EF-8DCF-EFFB0DC56FBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7502BFBB-1C09-41C4-87D8-D87B8486D588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7502BFBB-1C09-41C4-87D8-D87B8486D588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7502BFBB-1C09-41C4-87D8-D87B8486D588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7502BFBB-1C09-41C4-87D8-D87B8486D588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E59F9AA7-26F3-4F3E-90F9-15C9FABF2795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E59F9AA7-26F3-4F3E-90F9-15C9FABF2795}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E59F9AA7-26F3-4F3E-90F9-15C9FABF2795}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E59F9AA7-26F3-4F3E-90F9-15C9FABF2795}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
